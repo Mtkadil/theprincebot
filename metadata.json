@@ -1,0 +1,6 @@
+{
+  "name": "Bot Risposta Automatica",
+  "description": "Bot IA per risposta automatica ai clienti integrato per WhatsApp, Web e Servizi Assistenza",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
