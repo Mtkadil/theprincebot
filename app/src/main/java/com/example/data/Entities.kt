@@ -6,21 +6,21 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "business_profile")
 data class BusinessProfile(
     @PrimaryKey val id: Int = 1,
-    val businessName: String = "Ristorante Bella Vista",
-    val description: String = "Ristorante italiano con cucina tradizionale, pizza a legna e specialità di pesce.",
-    val address: String = "Via Roma 123, Milano",
-    val openingHours: String = "Lunedì - Sabato: 12:00 - 15:00, 19:00 - 23:30. Domenica chiuso.",
-    val phone: String = "+39 02 1234567",
-    val whatsappNumber: String = "+39 340 1234567",
-    val website: String = "https://bellavista-milano.it",
-    val botName: String = "Assistente Virtuale Bella Vista",
+    val businessName: String = "Barbershop The Prince",
+    val description: String = "Hair stylist. Il migliore in tutti gli stili. Precisione nelle sfumature e cura dei dettagli. Esperienza in Italia e all'estero. Stile unico.",
+    val address: String = "Via della Sfumatua 42, Roma",
+    val openingHours: String = "Lunedì: 12:00-19:00, Martedì-Sabato: 10:00-20:00, Domenica: 10:00-16:00",
+    val phone: String = "+39 375 6866511",
+    val whatsappNumber: String = "+39 375 6866511",
+    val website: String = "https://barbershop-theprince.it",
+    val botName: String = "Prince Bot",
     val tone: String = "Professionale ma cordiale", // Friendly, Professional, Formal
     val language: String = "Italiano",
     val autoReplyEnabled: Boolean = true,
     val autoReplyDelaySeconds: Int = 2,
     val requireManualApproval: Boolean = false,
-    val defaultGreeting: String = "Ciao! Benvenuto da Bella Vista. Sono l'assistente virtuale. Come posso aiutarti oggi?",
-    val fallbackResponse: String = "Grazie per il messaggio! Un nostro operatore ti risponderà al più presto."
+    val defaultGreeting: String = "Benvenuto da Barbershop The Prince! ✂️ Sono il tuo assistente virtuale. Come posso aiutarti oggi? Vuoi prenotare un taglio o una sfumatura?",
+    val fallbackResponse: String = "Grazie per il messaggio! Un nostro barbiere ti risponderà appena possibile."
 )
 
 @Entity(tableName = "faqs")

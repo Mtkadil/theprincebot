@@ -1,6 +1,6 @@
 {
-  "name": "Bot Risposta Automatica",
-  "description": "Bot IA per risposta automatica ai clienti integrato per WhatsApp, Web e Servizi Assistenza",
+  "name": "The Prince Bot",
+  "description": "Assistente virtuale AI per Barbershop The Prince, con auto-risposta WhatsApp e gestione lead",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

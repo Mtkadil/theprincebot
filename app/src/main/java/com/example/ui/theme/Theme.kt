@@ -8,34 +8,46 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme =
-  darkColorScheme(primary = Purple80, secondary = PurpleGrey80, tertiary = Pink80)
+    darkColorScheme(
+        primary = Purple80,
+        secondary = PurpleGrey80,
+        tertiary = Pink80,
+        background = Color(0xFF1D1B20),
+        surface = Color(0xFF1D1B20),
+        onPrimary = Color(0xFF6750A4),
+        onSecondary = Color(0xFF6750A4),
+        onTertiary = Color(0xFF6750A4),
+        onBackground = Color(0xFFFEF7FF),
+        onSurface = Color(0xFFFEF7FF)
+    )
 
 private val LightColorScheme =
-  lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40,
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
-  )
+    lightColorScheme(
+        primary = BrandPurple,
+        secondary = BrandSecondaryContainer,
+        tertiary = Pink40,
+        background = BrandSurface,
+        surface = BrandSurface,
+        surfaceVariant = BrandContainer,
+        onPrimary = BrandTextOnPrimary,
+        onSecondary = BrandPurple,
+        onTertiary = Color.White,
+        onBackground = BrandOnSurface,
+        onSurface = BrandOnSurface,
+        onSurfaceVariant = BrandOnSurfaceVariant,
+        outline = BrandOutline
+    )
 
 @Composable
 fun MyApplicationTheme(
-  darkTheme: Boolean = isSystemInDarkTheme(),
-  // Dynamic color is available on Android 12+
-  dynamicColor: Boolean = true,
-  content: @Composable () -> Unit,
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    // Set dynamicColor to false by default to respect brand identity
+    dynamicColor: Boolean = false,
+    content: @Composable () -> Unit,
 ) {
   val colorScheme =
     when {

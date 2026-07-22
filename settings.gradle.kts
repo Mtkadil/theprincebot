@@ -22,6 +22,6 @@ dependencyResolutionManagement {
   }
 }
 
-rootProject.name = "Bot Risposta Automatica"
+rootProject.name = "The Prince Bot"
 
 include(":app")

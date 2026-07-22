@@ -37,33 +37,33 @@ class BotRepository(private val db: AppDatabase) {
             db.faqDao().insertFaq(
                 FaqItem(
                     question = "Quali sono i vostri orari di apertura?",
-                    answer = "Siamo aperti dal Lunedì al Sabato dalle 12:00 alle 15:00 e dalle 19:00 alle 23:30. Domenica chiuso.",
+                    answer = "Lunedì: 12:00-19:00, Martedì-Sabato: 10:00-20:00, Domenica: 10:00-16:00.",
                     category = "Orari",
                     keywords = "orario, orari, aperto, chiusura, apertura"
                 )
             )
             db.faqDao().insertFaq(
                 FaqItem(
-                    question = "Dove si trova la vostra sede?",
-                    answer = "La nostra sede si trova in Via Roma 123, Milano. C'è un parcheggio clienti riservato nelle vicinanze.",
-                    category = "Posizione",
-                    keywords = "dove, posizione, indirizzo, mappa, parcheggio, strada"
-                )
-            )
-            db.faqDao().insertFaq(
-                FaqItem(
-                    question = "Come posso prenotare un tavolo o appuntamento?",
-                    answer = "Puoi prenotare direttamente rispondendo a questo messaggio con Data, Ora e Numero di Persone, oppure chiamando al +39 02 1234567.",
+                    question = "Come posso prenotare un taglio?",
+                    answer = "Puoi prenotare direttamente rispondendo a questo messaggio con il servizio desiderato, data e ora, oppure chiamandoci al +39 375 6866511.",
                     category = "Prenotazioni",
-                    keywords = "prenotare, prenotazione, tavolo, appuntamento, orario, posto"
+                    keywords = "prenotare, prenotazione, appuntamento, taglio, barba"
                 )
             )
             db.faqDao().insertFaq(
                 FaqItem(
-                    question = "Accettate pagamenti con carta o carte di credito?",
-                    answer = "Sì, accettiamo tutte le carte di credito, Bancomat, Satispay, Apple Pay e Google Pay.",
-                    category = "Pagamenti",
-                    keywords = "pagamento, carta, carte, bancomat, satispay, contanti"
+                    question = "Siete esperti in sfumature?",
+                    answer = "Assolutamente sì. Siamo specializzati in sfumature di precisione (fade) e cura dei dettagli in ogni stile.",
+                    category = "Servizi",
+                    keywords = "sfumatura, fade, precisione, stile"
+                )
+            )
+            db.faqDao().insertFaq(
+                FaqItem(
+                    question = "Dove si trova il negozio?",
+                    answer = "Ci trovi in Via della Sfumatua 42, Roma. Ti aspettiamo!",
+                    category = "Posizione",
+                    keywords = "dove, indirizzo, mappa, roma"
                 )
             )
         }
@@ -72,26 +72,26 @@ class BotRepository(private val db: AppDatabase) {
         if (existingProducts.isEmpty()) {
             db.productDao().insertProduct(
                 ProductItem(
-                    name = "Menu Degustazione Tradizionale",
+                    name = "Taglio Capelli & Sfumatura",
+                    price = "€25,00",
+                    description = "Taglio personalizzato con sfumatura di precisione a macchinetta e rifinitura a forbice.",
+                    category = "Hair Styling"
+                )
+            )
+            db.productDao().insertProduct(
+                ProductItem(
+                    name = "Modellatura Barba con Panno Caldo",
+                    price = "€15,00",
+                    description = "Cura e modellatura della barba con trattamento tradizionale a panno caldo e oli essenziali.",
+                    category = "Barba"
+                )
+            )
+            db.productDao().insertProduct(
+                ProductItem(
+                    name = "Servizio Combo Prince",
                     price = "€35,00",
-                    description = "Menu completo con antipasto di salumi, primo piatto fatto in casa, secondo a scelta e dolce.",
-                    category = "Ristorazione"
-                )
-            )
-            db.productDao().insertProduct(
-                ProductItem(
-                    name = "Pizza Speciale Bella Vista",
-                    price = "€12,50",
-                    description = "Pizza a lievitazione naturale 48h con pomodoro San Marzano, bufala DOP, crudo di Parma e rucola.",
-                    category = "Ristorazione"
-                )
-            )
-            db.productDao().insertProduct(
-                ProductItem(
-                    name = "Consulenza Personalizzata / Servizio VIP",
-                    price = "€50,00",
-                    description = "Servizio dedicato con tavolo panoramico e calice di benvenuto.",
-                    category = "Servizi VIP"
+                    description = "Taglio capelli completo e cura della barba con trattamento relax.",
+                    category = "Combo"
                 )
             )
         }
@@ -100,10 +100,10 @@ class BotRepository(private val db: AppDatabase) {
         if (conversations.isEmpty()) {
             val defaultConvId = db.conversationDao().insertConversation(
                 Conversation(
-                    customerName = "Marco Rossi (WhatsApp)",
+                    customerName = "Alessandro (WhatsApp)",
                     customerPhone = "+39 333 9876543",
                     platform = "WhatsApp",
-                    lastMessage = "Vorrei sapere se avete tavoli liberi per stasera",
+                    lastMessage = "Vorrei sapere se avete posto per un taglio domani",
                     lastUpdated = System.currentTimeMillis() - 3600000,
                     isAutoReplyOn = true
                 )
@@ -113,7 +113,7 @@ class BotRepository(private val db: AppDatabase) {
                 ChatMessage(
                     conversationId = defaultConvId,
                     sender = "Customer",
-                    text = "Buonasera! Vorrei sapere se avete tavoli liberi per stasera verso le 20:30 per 4 persone.",
+                    text = "Ciao! Vorrei sapere se avete posto per un taglio e barba domani mattina verso le 11:00.",
                     timestamp = System.currentTimeMillis() - 3600000,
                     isAutoReplied = false
                 )
@@ -123,7 +123,7 @@ class BotRepository(private val db: AppDatabase) {
                 ChatMessage(
                     conversationId = defaultConvId,
                     sender = "Bot",
-                    text = "Buonasera Marco! 🍕 Abbiamo disponibilità per stasera alle 20:30. Vuoi che confermi la prenotazione per 4 persone a tuo nome?",
+                    text = "Ciao Alessandro! ✂️ Per domani alle 11:00 abbiamo un posto libero per il Servizio Combo Prince. Vuoi che te lo blocchi a tuo nome?",
                     timestamp = System.currentTimeMillis() - 3550000,
                     isAutoReplied = true,
                     aiConfidence = 0.98f,
